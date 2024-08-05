@@ -11,6 +11,8 @@ spring:
       uri: lb://mbasket-shop-mvc
       predicates:
       - Path=/mbasket/**
+      filters:
+      - RewriteLocationResponseHeader: Location, https://localhost:8080, /mbasket
 
 server:
  port: 8080
