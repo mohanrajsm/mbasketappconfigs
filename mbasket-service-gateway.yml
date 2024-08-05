@@ -14,9 +14,9 @@ spring:
     - id: mbasketmvcinternalredirect
       uri: lb://mbasket-shop-mvc
       predicates:
-      - Path=/**
+      - Path=/mbasket/**
       filters:
-#            - AddRequestHeader=Host, gateway-url.com
+      - AddRequestHeader=Host, http://localhost:8080
       - RewriteLocationResponseHeader=ALWAYS_STRIP, http://host.docker.internal:8081, http://localhost:8080
 server:
  port: 8080
